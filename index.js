@@ -133,8 +133,15 @@ document.getElementById("button11").onclick = function () {
 
 // So sánh số âm và dương
 document.getElementById("button12").onclick = function () {
-  let demSoDuong = arrSoHienThi.filter((n) => n > 0).length;
-  let demSoAm = arrSoHienThi.filter((n) => n < 0).length;
+  let demSoAm = 0;
+  let demSoDuong = 0;
+  for (index = 0; index < arrSoHienThi.length; index++) {
+    if (arrSoHienThi[index] < 0) {
+      demSoAm++;
+    } else if (arrSoHienThi[index] > 0) {
+      demSoDuong++;
+    }
+  }
   if (demSoAm > demSoDuong) {
     document.getElementById("ketQua12").innerHTML = `Số âm > Số dương`;
   } else if (demSoAm < demSoDuong) {
